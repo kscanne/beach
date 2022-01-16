@@ -5,11 +5,13 @@
 #     then go to cadhan, make diff, sudo make install. Then back on borel,
 #     perl client.pl xx
 # (4) Update deploy.sh with localization strings, and then run it
+# (5) Add a line to sionc to copy .hash file to cadhan
 #
 # TO REBUILD PUZZLES:
 # $ rm -f puzzles-xx.json
 # $ make puzzles-xx.json
-# $ p2cadhan
+# Then on cadhan.com
+# $ sionc
 # The point is that the .hash files are in production (at least
 # after they're synced to cadhan), so shouldn't be deleted.
 # NB: .json files are just for easy examination; not used in production at all.
