@@ -29,5 +29,7 @@ yarn-error.log*
 *.txt
 
 *.json
+*.hash
 
 test.js
+words-*.txt
