@@ -1,4 +1,10 @@
-# spelling_bee
+This is a version of the New York Times' Spelling Bee Puzzle
+for Irish and Scottish Gaelic, forked from an open-source version
+by [lzha97](https://github.com/lzha97).
+
+Thanks to [Michael Bauer](https://github.com/akerbeltz) for the idea, and for providing the Gaelic data.
+
+Lzha97's original README follows...
 
 ### Project Origin
 This project is based off of NYT's [Spelling Bee Puzzles](https://www.nytimes.com/puzzles/spelling-bee).
