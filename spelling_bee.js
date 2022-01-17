@@ -356,6 +356,13 @@ function input_from_keyboard(ev) {
       else if (c=='o') { c='ò'; }
       else if (c=='u') { c='ù'; }
     }
+    else if (dead == 'KeyE') {
+      if (c=='a') { c='á'; }
+      else if (c=='e') { c='é'; }
+      else if (c=='i') { c='í'; }
+      else if (c=='o') { c='ó'; }
+      else if (c=='u') { c='ú'; }
+    }
     dead = '';
     tryword.innerHTML = tryword.innerHTML+ c;
     if(checkIncorrectLetters(tryword.innerHTML)) {
