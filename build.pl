@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 use utf8;
+use locale;
 use JSON;
 use Storable;
 use List::Util qw(shuffle);
@@ -73,7 +74,7 @@ my $minscore=75;
 my $mincount=15;
 my @puzzlelist = shuffle(keys %puzzles);
 my %ans;
-my $datestr = '2022-01-01';
+my $datestr = '2022-01-14';
 for my $p (@puzzlelist) {
 	my @pangrams = sort keys %{$puzzles{$p}};
 	my %cands;
@@ -87,7 +88,7 @@ for my $p (@puzzlelist) {
 		my $c = substr($p,$i,1);
 		my @allwords;
 		my $score = 0;
-		for my $w (keys %cands) {
+		for my $w (sort keys %cands) {
 			next unless ($w =~ m/$c/);
 			push @allwords, $w;
 			if (length($w)==4) {
