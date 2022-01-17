@@ -74,7 +74,7 @@ s/DELETEBUTTON/Sguab às litir/
 s/NUMFOUND/Cò mheud facal:/
 s/SCOREMSG/An sgòr:/
 s/DISCOVEREDWORDS/Na faclan a lorg thu/
-s/YESTERDAYS/Na faclan an-dè/
+s/YESTERDAYS/Na faclan on dè/
 s/RETURNHOME/<< Dhachaigh/
 "
 	fi
@@ -91,7 +91,7 @@ cat spelling_bee.js | sed "s/=TEANGA/=${TEANGA}/" | localize "${TEANGA}" > ${SPR
 rm -f ${SPRIOC}/${TEANGA}/index.html
 cat template.html | sed "s/TEANGA/${TEANGA}/" | localize "${TEANGA}" > ${SPRIOC}/${TEANGA}/index.html
 rm -f ${SPRIOC}/${TEANGA}/solutions.html
-cat solutions.html | sed "s/=TEANGA/=${TEANGA}/" | localize "${TEANGA}" > ${SPRIOC}/${TEANGA}/solutions.html
+cat solutions.html | sed "s/TEANGA/${TEANGA}/" | localize "${TEANGA}" > ${SPRIOC}/${TEANGA}/solutions.html
 chmod 444 ${SPRIOC}/css/spelling_bee.css ${SPRIOC}/${TEANGA}/spelling_bee.js ${SPRIOC}/${TEANGA}/*.html
 
 # p2cadhan suffices since everything is under public_html
