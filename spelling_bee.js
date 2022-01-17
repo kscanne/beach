@@ -25,23 +25,20 @@ function get_valid_words(){
     var request = new XMLHttpRequest();
     request.open('POST', url, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.onreadystatechange = function(){
+    request.onreadystatechange = function(event){
       try {
-        var data = JSON.parse(this.response);
-        //3 is LOADING, 4 is DONE
         if(request.readyState == 3 && request.status == 200){
+          var data = JSON.parse(event.target.responseText);
           console.log(data)
           letters = data['letters'].split('');
           validWords = data['possible_words'];
           maxscore = data['maxscore'];
           initialize_letters();
           initialize_score();
-          console.log(validWords);
-
         }
       } 
       catch (e){
-        console.log('error')
+        console.log('error: '+e.message)
       };
     };
     request.send('teanga=TEANGA');
