@@ -46,6 +46,23 @@ function get_valid_words(){
   request.send('teanga=TEANGA&id=-1');
 }
 
+function addDictionaryLink(w) {
+  var teanga = 'TEANGA';
+  var uri = '';
+  if (teanga == 'ga') {
+    uri = 'https://www.teanglann.ie/ga/fgb/' + w;
+  }
+  else if (teanga == 'gd') {
+    uri = 'https://www.faclair.com/?txtSearch=' + w;
+  }
+  if (uri != '') {
+    return '<a target="_blank" href="'+uri+'">'+w+'</a>';
+  }
+  else {
+    return w;
+  }
+}
+
 function showValidWords(validWords, letters){
   var discText = document.getElementById("discoveredText");
   var numFound = validWords.length; 
@@ -72,10 +89,11 @@ function showValidWords(validWords, letters){
       var listword = document.createElement("LI");
       var pword = document.createElement("P");
       var thisword = validWords[w];
+      var toDisplay = addDictionaryLink(thisword);
       if (checkPangram(thisword,letters)) {
-        thisword = '*'+thisword;
+        toDisplay = '*'+toDisplay;
       }
-      pword.innerHTML = thisword;
+      pword.innerHTML = toDisplay;
       listword.appendChild(pword);
       list.appendChild(listword);
       w++;
