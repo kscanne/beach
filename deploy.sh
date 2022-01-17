@@ -32,6 +32,8 @@ s/DELETEBUTTON/Scrios litir/
 s/NUMFOUND/Líon focal:/
 s/SCOREMSG/Scór iomlán:/
 s/DISCOVEREDWORDS/Liosta focal/
+s/YESTERDAYS/Na focail ón lá inné/
+s/RETURNHOME/<< Abhaile/
 "
 	elif [ "${1}" = "en" ]
 	then
@@ -51,6 +53,8 @@ s/DELETEBUTTON/Delete/
 s/NUMFOUND/Number of words:/
 s/SCOREMSG/Score:/
 s/DISCOVEREDWORDS/Words Discovered/
+s/YESTERDAYS/Yesterday's Words/
+s/RETURNHOME/<< Home/
 "
 	elif [ "${1}" = "gd" ]
 	then
@@ -70,6 +74,8 @@ s/DELETEBUTTON/Sguab às litir/
 s/NUMFOUND/Cò mheud facal:/
 s/SCOREMSG/An sgòr:/
 s/DISCOVEREDWORDS/Na faclan a lorg thu/
+s/YESTERDAYS/Na faclan an-dè/
+s/RETURNHOME/<< Dhachaigh/
 "
 	fi
 }
@@ -84,6 +90,9 @@ rm -f ${SPRIOC}/${TEANGA}/spelling_bee.js
 cat spelling_bee.js | sed "s/=TEANGA/=${TEANGA}/" | localize "${TEANGA}" > ${SPRIOC}/${TEANGA}/spelling_bee.js
 rm -f ${SPRIOC}/${TEANGA}/index.html
 cat template.html | sed "s/TEANGA/${TEANGA}/" | localize "${TEANGA}" > ${SPRIOC}/${TEANGA}/index.html
-chmod 444 ${SPRIOC}/css/spelling_bee.css ${SPRIOC}/${TEANGA}/spelling_bee.js ${SPRIOC}/${TEANGA}/index.html
+rm -f ${SPRIOC}/${TEANGA}/solutions.html
+cat solutions.html | sed "s/=TEANGA/=${TEANGA}/" | localize "${TEANGA}" > ${SPRIOC}/${TEANGA}/solutions.html
+chmod 444 ${SPRIOC}/css/spelling_bee.css ${SPRIOC}/${TEANGA}/spelling_bee.js ${SPRIOC}/${TEANGA}/*.html
 
+# p2cadhan suffices since everything is under public_html
 p2cadhan
